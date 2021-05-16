@@ -16,11 +16,11 @@ dayPlanned.forEach(function(thisHour) {
         hourField.text(`${thisHour.hour}${thisHour.meridiem}`)
         hourField.addClass('col-md-1 hour');
 
-    let hourPlan = $("<div>")
-    hourPlan.addClass('col-lg-12 description p-1');
+    let hourlyPlan = $("<div>")
+    hourlyPlan.addClass('col-lg-12 description p-1');
 
     let userData = $("<textarea>");
-    hourPlan.append(userData);
+    hourlyPlan.append(userData);
     userData.attr("id", thisHour.id);
     // using moment to compare current time and apply a past/present/future class
     if (thisHour.time < moment().format("HH")) {
@@ -35,13 +35,14 @@ dayPlanned.forEach(function(thisHour) {
     let saveBtnAttr = $("<button>")
     saveBtnAttr.addClass('col-md-12 saveBtn');
     saveBtnAttr.append(saveBtn);
-    hourRow.append(hourField, hourPlan, saveBtnAttr);
+    hourRow.append(hourField, hourlyPlan, saveBtnAttr);
 });
 
 
 // TODO - Add local storage and make sure it displays properly
-// function saveDayPlanned () {
-//     localStorage.setItem("dayPlanned", json.stringify(dayPlanned));
-// }
+function saveDayPlanned () {
+    localStorage.setItem("dayPlanned", JSON.stringify(dayPlanned));
+};
+saveDayPlanned();
 
 
