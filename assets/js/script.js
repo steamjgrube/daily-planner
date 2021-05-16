@@ -19,16 +19,16 @@ dayPlanned.forEach(function(thisHour) {
     let hourPlan = $("<div>")
     hourPlan.addClass('col-lg-12 description p-1');
 
-    let planData = $("<textarea>");
-    hourPlan.append(planData);
-    planData.attr("id", thisHour.id);
+    let userData = $("<textarea>");
+    hourPlan.append(userData);
+    userData.attr("id", thisHour.id);
     // using moment to compare current time and apply a past/present/future class
     if (thisHour.time < moment().format("HH")) {
-        planData.addClass('past');
+        userData.addClass('past');
     } else if (thisHour.time === moment().format("HH")) {
-        planData.addClass('present')
+        userData.addClass('present')
     } else if (thisHour.time > moment().format("HH")) {
-        planData.addClass('future')
+        userData.addClass('future')
     }
 
     let saveBtn = $("<i>Save</i>")
